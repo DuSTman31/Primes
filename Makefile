@@ -1,6 +1,10 @@
 run:
 	- echo "C++:"
 	- g++ -O3 -flto -march=native PrimeCPP/PrimeCPP.cpp && ./a.out
+	- echo "  profile generating run:"
+	- g++ -O3 -flto -march=native PrimeCPP/PrimeCPP.cpp -fprofile-generate && ./a.out
+	- echo "  profile using run:"
+	- g++ -O3 -flto -march=native PrimeCPP/PrimeCPP.cpp -fprofile-use && ./a.out
 	- echo "C#:"
 	- cd PrimeCS && dotnet run --configuration Release
 	- echo "Rust:"
